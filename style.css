@@ -1,0 +1,64 @@
+.container {
+    text-align: center;
+    background-color: #ffffff;
+}
+
+#displayedImage {
+    width: 70%;
+    height: 70%;
+    margin: 20px auto;
+    border: 5px solid #000000;
+}
+
+#btnContinue {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 3px #000000;
+    cursor: pointer;
+}
+
+#gameOverMessage {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#btnRestart {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: solid 3px #000000;
+  cursor: pointer;
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex; /* Enables Flexbox layout */
+    justify-content: center; /* Centers elements horizontally */
+    align-items: center; /* Centers elements vertically */
+    position: absolute; /* Positions the container absolutely */
+    top: 50%; /* Places the top of the container at 50% of the viewport height */
+    left: 50%; /* Places the left of the container at 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Centers the container horizontally and vertically */
+  }
+
+#btnColours {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 3px #000000;
+    cursor: pointer;
+}
+
+#btnBlackWhite {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 3px #000000;
+    cursor: pointer;
+}
