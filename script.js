@@ -23,17 +23,23 @@ const btnBlackWhite = document.getElementById("btnBlackWhite");
 
 //Hide everything, initial state
 console.log("hiding stuff");
-btnContinue.disabled = true;
-btnContinue.style.display = "none";
-btnRestart.disabled = true;
-btnRestart.style.display = "none";
-btnColours.disabled = false;
-btnBlackWhite.disabled = false;
-timerElement.style.display = "none"; // Hide the timer initially
-gameOverElement.style.display = "none"; // Hide the game over message initially
+showElement(btnColours);
+showElement(btnBlackWhite);
+hideElement(btnContinue);
+hideElement(timerElement);
+hideElement(btnRestart);
+hideElement(displayedImage);
 
 
 // Functions //
+
+function hideElement (element) {
+  element.style.visibility = "hidden";
+}
+
+function showElement (element) {
+  element.style.visibility = "visible";
+}
 
 function runGame() {
 
@@ -43,23 +49,23 @@ function runGame() {
 console.log("buttons should work now");
 btnColours.addEventListener("click", () => {
   imagesToUse = [...images]; // Use the original color image list
-  btnColours.disabled = true;
-  btnColours.style.display = "none";
-  btnBlackWhite.disabled = true;
-  btnBlackWhite.style.display = "none";
-
-  btnContinue.disabled = false;
-  btnContinue.style.display = "block";
+  hideElement(btnColours);
+  hideElement(btnBlackWhite);
+  showElement(btnContinue);
+  showElement(timerElement);
+  showElement(displayedImage);
   console.log("colours pressed");
   //runGame();
 });
 
 btnBlackWhite.addEventListener("click", () => {
   imagesToUse = [...images_bw]; // Use the black and white image list
-  btnColours.disabled = true;
-  btnBlackWhite.disabled = true;
-  btnContinue.disabled = false;
-  //runGame();
+  hideElement(btnColours);
+  hideElement(btnBlackWhite);
+  showElement(btnContinue);
+  showElement(timerElement);
+  showElement(displayedImage);
+  console.log("BW pressed");
 });
 
 btnContinue.addEventListener("click", () => {
