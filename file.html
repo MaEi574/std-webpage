@@ -9,14 +9,15 @@
 <body>
     <div class="image-container">
         <h1>Spot the Differences</h1>
-        <img src="STD_01.jpg" alt="Current Image" id="displayedImage">
+        <img alt="Current Image" id="displayedImage">
         <div id="timer" >60 seconds </div>
         <button id="btnContinue">Next Image</button>
-        <div id="gameOverMessage" style="display: none;">
-          <h2>Game Over!</h2>
-          <button id="btnRestart">Restart</button>
-        </div>
       </div>
+
+    <div class="game-over-container">
+      <div id="gameOverMessage" >Game over! </div>
+      <button id="btnRestart">Restart</button>
+    </div>
 
       <div class="button-container">
         <button id="btnColours">Colours</button>
