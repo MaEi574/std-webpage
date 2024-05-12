@@ -1,7 +1,7 @@
 // Variables //
 
 let imageIndex = 0;
-const maxTime = 10; // in seconds
+const maxTime = 60; // in seconds
 let timeoutId;
 let remainingTime = maxTime; //in seconds
 let timerRunning = false;
