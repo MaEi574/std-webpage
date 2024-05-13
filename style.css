@@ -13,8 +13,6 @@
 }
 
 #btnContinue {
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #ffffff;
     color: #000000;
     border: solid 3px #000000;
@@ -28,12 +26,12 @@
 }
 
 #btnRestart {
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #000000;
-  border: solid 3px #000000;
-  cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 3px #000000;
+    cursor: pointer;
 }
+
 
 #timer {
     margin-top: 20px;

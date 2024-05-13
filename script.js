@@ -5,6 +5,7 @@ const maxTime = 60; // in seconds
 let timeoutId;
 let remainingTime = maxTime; //in seconds
 let timerRunning = false;
+//let imageTransitionRunning = false;
 
 // Arrays with image filepaths //
 
@@ -26,6 +27,7 @@ console.log("hiding stuff");
 showElement(btnColours);
 showElement(btnBlackWhite);
 hideElement(btnContinue);
+hideElement(btnRestart);
 hideElement(timerElement);
 hideElement(btnRestart);
 hideElement(displayedImage);
@@ -48,12 +50,13 @@ function showElement (element)
 
 function checkTimerForImage()
 {
+
     remainingTime--;
     timerElement.textContent = remainingTime + " seconds";
 
       if (remainingTime<=0)
       {
-        clearInterval(timeoutId);
+        clearInterval(timeoutId);    //clearTimeout()
         if (imageIndex >= 9)
           {
             displayGameOver();
@@ -61,11 +64,10 @@ function checkTimerForImage()
           }
           else 
           {
-            imageIndex++;
-            displayedImage.src = imagesToUse[imageIndex];
-            remainingTime = maxTime;
-            timerElement.textContent = remainingTime + " seconds";
-            timeoutId = setInterval(checkTimerForImage, 1000);
+            displayedImage.src = "stopImage.jpg";
+            hideElement(timerElement);
+            hideElement(btnContinue);
+            setTimeout(changeImage, 5000);
             return;
           }
         
@@ -83,15 +85,36 @@ function displayGameOver()
   hideElement(timerElement);
   hideElement(btnContinue);
   showElement(gameOverElement);
+  showElement(btnRestart);
 }
 
 function runGame()
 {
   console.log("runGame entered");
-  timeoutId = setInterval(checkTimerForImage, 1000);
+  timeoutId = setInterval(checkTimerForImage, 1000);   // check Time every 1s-> setTimeout(checkTimerforImage,1000)
 }
 
+function restartGame()
+{
+  console.log("Restart Game entered");
+  imageIndex = 0;
+  remainingTime = maxTime;
+  hideElement(gameOverElement);
+  showElement(btnColours);
+  showElement(btnBlackWhite);
+  hideElement(displayedImage);
+}
 
+function changeImage()
+{
+  showElement(timerElement);
+  showElement(btnContinue);
+  imageIndex++;
+  displayedImage.src = imagesToUse[imageIndex];
+  remainingTime = maxTime;
+  timerElement.textContent = remainingTime + " seconds";
+  timeoutId = setInterval(checkTimerForImage, 1000);     //setTimeout(checkTimerforImage,1000)
+}
     
 
  // Button Click Events //
@@ -102,6 +125,7 @@ btnColours.addEventListener("click", () => {
   hideElement(btnColours);
   hideElement(btnBlackWhite);
   showElement(btnContinue);
+  showElement(btnRestart);
   showElement(timerElement);
   showElement(displayedImage);
   console.log("colours pressed");
@@ -114,6 +138,7 @@ btnBlackWhite.addEventListener("click", () => {
   hideElement(btnColours);
   hideElement(btnBlackWhite);
   showElement(btnContinue);
+  showElement(btnRestart);
   showElement(timerElement);
   showElement(displayedImage);
   console.log("BW pressed");
@@ -128,19 +153,22 @@ btnContinue.addEventListener("click", () => {
           }
           else 
           {
-            imageIndex++;
-            displayedImage.src = imagesToUse[imageIndex];
-            remainingTime = maxTime;
-            timerElement.textContent = remainingTime + " seconds";
-            timeoutId = setInterval(checkTimerForImage, 1000);
+            displayedImage.src = "stopImage.jpg";
+            hideElement(timerElement);
+            hideElement(btnContinue);
+            setTimeout(changeImage, 5000);
+
           }
 });
 
 btnRestart.addEventListener("click", () => {
-  
+hideElement(btnColours);
+hideElement(btnBlackWhite);
+hideElement(btnContinue);
+hideElement(timerElement);
+showElement(btnRestart);
+showElement(displayedImage);
+showElement(gameOverElement);
+console.log("Restart Press");
+restartGame();
 });
-
-
-
-
-  
