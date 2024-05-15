@@ -85,11 +85,13 @@ function displayGameOver()
   hideElement(timerElement);
   hideElement(btnContinue);
   showElement(gameOverElement);
-  showElement(btnRestart);
 }
 
 function runGame()
 {
+  showElement(btnContinue);
+  showElement(timerElement);
+  displayedImage.src = imagesToUse[0];
   console.log("runGame entered");
   timeoutId = setInterval(checkTimerForImage, 1000);   // check Time every 1s-> setTimeout(checkTimerforImage,1000)
 }
@@ -121,28 +123,24 @@ function changeImage()
 console.log("buttons should work now");
 btnColours.addEventListener("click", () => {
   imagesToUse = images.slice(0, images.length); // Use the original color image list
-  displayedImage.src = imagesToUse[0];
+  displayedImage.src = "stopImage.jpg";
   hideElement(btnColours);
   hideElement(btnBlackWhite);
-  showElement(btnContinue);
   showElement(btnRestart);
-  showElement(timerElement);
   showElement(displayedImage);
   console.log("colours pressed");
-  runGame();
+  setTimeout(runGame, 5000);
 });
 
 btnBlackWhite.addEventListener("click", () => {
   imagesToUse = imagesToUse = images_bw.slice(0, images_bw.length);; // Use the black and white image list
-  displayedImage.src = imagesToUse[0];
+  displayedImage.src = "stopImage.jpg";
   hideElement(btnColours);
   hideElement(btnBlackWhite);
-  showElement(btnContinue);
   showElement(btnRestart);
-  showElement(timerElement);
   showElement(displayedImage);
   console.log("BW pressed");
-  runGame();
+  setTimeout(runGame, 5000);
 });
 
 btnContinue.addEventListener("click", () => {
