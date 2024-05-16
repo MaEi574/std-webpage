@@ -98,13 +98,10 @@ function runGame()
 
 function restartGame()
 {
+  clearTimeout(timeoutId);
   console.log("Restart Game entered");
   imageIndex = 0;
   remainingTime = maxTime;
-  hideElement(gameOverElement);
-  showElement(btnColours);
-  showElement(btnBlackWhite);
-  hideElement(displayedImage);
 }
 
 function changeImage()
@@ -160,13 +157,13 @@ btnContinue.addEventListener("click", () => {
 });
 
 btnRestart.addEventListener("click", () => {
-hideElement(btnColours);
-hideElement(btnBlackWhite);
+
+showElement(btnColours);
+showElement(btnBlackWhite);
 hideElement(btnContinue);
 hideElement(timerElement);
-showElement(btnRestart);
-showElement(displayedImage);
-showElement(gameOverElement);
+hideElement(displayedImage);
+hideElement(gameOverElement);
 console.log("Restart Press");
 restartGame();
 });
